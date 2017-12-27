@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .flex-container {
+        display: flex;
+    }
+    /*使用自动空白边进行条目对齐*/
+    .profile {
+        /*CSS 声明 profile 中通过"margin-left: auto"使得该条目左边的空白边会占据额外的空间，从而"Profile"文本会靠右显示*/
+        margin-left: auto;
+    }
+    /*在主轴方向上的对齐*/
+    .flex-container1 {
+        display: flex;
+        justify-content:center;
+    }
+    /*使用自动空白边进行条目对齐*/
+    .flex {
+        /*CSS 声明 profile 中通过"margin-left: auto"使得该条目左边的空白边会占据额外的空间，从而"Profile"文本会靠右显示*/
+        margin: auto;
+    }
+
+</style>
+<body>
+    <div class="flex-container">
+        <div class="logo">Logo</div>
+        <div class="profile">Profile</div>
+    </div>
+    <div class="flex-container1">
+        <div class="flex">one</div>
+        <div class="flex">two</div>
+        <div class="flex">three</div>
+    </div>
+</html>

@@ -4,26 +4,69 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        *{margin: 0;padding: 5px}
         .flex-container {
             list-style: none;
+
             display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
+            flex-direction: column-reverse; /*横纵方向*/
+            flex-wrap: wrap;/*超过容器换行*/
+            /*合并写法*/
+            flex-flow: row wrap;
+        }
+        .flex-item {
+            background: black;
+            padding: 5px;
+            width: 200px;
+            height: 200px;
+            /*"flex-basis"属性声明接受的值与"width"属性是一样的，用来确定弹性条目的初始主轴尺寸*/
+            /*flex-basis: 10em;*/
+        }
+        /*条目的顺序-让最后一个<li>元素出现在了其他<li>元素的最前面*/
+        .flex-item:last-child {
+            order: -1;/*类似z-index*/
+        }
+        /*条目尺寸的弹性*/
+
+        /*"flex-grow"属性的值表示的是当容器有多余的空间时，这些空间在不同条目之间的分配比例*/
+        /*"flex-shrink"属性在使用上类似于"flex-grow"。该属性的值也是无单位的，表示的是当容器的空间不足时，各个条目的尺寸缩小的比例*/
+        .flex-item:nth-child(1) {
+            flex-grow: 1;
+            flex-shrink:1;
+        }
+
+        .flex-item:nth-child(2) {
+            flex-grow: 2;
+            flex-shrink:2;
+        }
+
+        .flex-item:nth-child(3) {
+            flex-grow: 3;
+            flex-shrink:3;
+        }
+        .flex-item:nth-child(1) {
+            flex: 1 1 auto;
+            /*flex: 1;  // flex-grow 的值为 1，flex-shrink 的值为 1，flex-basis 的值为 0%。*/
+        }
+        /*多行布局的 CSS 声明*/
+        .flex-container {
+            width: 60%;
         }
 
         .flex-item {
-            padding: 5px;
+            width: 300px;
+            flex: auto;
         }
     </style>
 </head>
 <body>
     <ul class="flex-container">
-        <li class="flex-item"><img src="//placehold.it/300&text=1"></li>
-        <li class="flex-item"><img src="//placehold.it/300&text=2"></li>
-        <li class="flex-item"><img src="//placehold.it/300&text=3"></li>
-        <li class="flex-item"><img src="//placehold.it/300&text=4"></li>
-        <li class="flex-item"><img src="//placehold.it/300&text=5"></li>
-        <li class="flex-item"><img src="//placehold.it/300&text=6"></li>
+        <li class="flex-item" style="background: black"><!--<img src="//placehold.it/300&text=1">--></li>
+        <li class="flex-item" style="background: blanchedalmond"><!--<img src="//placehold.it/300&text=2">--></li>
+        <li class="flex-item" style="background: aqua"><!--<img src="//placehold.it/300&text=3">--></li>
+        <li class="flex-item" style="background: gray"><!--<img src="//placehold.it/300&text=4">--></li>
+        <li class="flex-item" style="background: blueviolet"><!--<img src="//placehold.it/300&text=5">--></li>
+        <li class="flex-item" style="background: green"><!--<img src="//placehold.it/300&text=6">--></li>
     </ul>
 </body>
 </html>
